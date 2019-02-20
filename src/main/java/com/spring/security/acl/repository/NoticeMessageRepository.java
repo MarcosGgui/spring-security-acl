@@ -1,15 +1,32 @@
 package com.spring.security.acl.repository;
 
 import com.spring.security.acl.domain.NoticeMessage;
-import org.springframework.data.jpa.repository.*;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PostFilter;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Repository;
 
 
 /**
  * Spring Data  repository for the NoticeMessage entity.
  */
-@SuppressWarnings("unused")
 @Repository
-public interface NoticeMessageRepository extends JpaRepository<NoticeMessage, Long> {
+public interface NoticeMessageRepository extends JpaRepository<NoticeMessage, Long>{
 
+    @Override
+    @PostFilter("hasPermission(filterObject, 'READ')")
+    List<NoticeMessage> findAll();
+
+    @Override
+    @PostAuthorize("hasPermission(returnObject, 'READ')")
+    Optional<NoticeMessage> findById(Long id);
+
+    @Override
+    @SuppressWarnings("unchecked")
+    @PreAuthorize("hasPermission(#noticeMessage, 'WRITE')")
+    NoticeMessage save(@Param("noticeMessage") NoticeMessage noticeMessage);
 }
