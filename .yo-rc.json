@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.spring.security.acl"
+        },
+        "jhipsterVersion": "5.8.1",
+        "applicationType": "monolith",
+        "baseName": "SpringSecurityAcl",
+        "packageName": "com.spring.security.acl",
+        "packageFolder": "com/spring/security/acl",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NzU2YzJjZGFhZTJmOTMzMDU1NDM2MTJlMDk4ZWY2ZWVjY2MyOTFhYjk1ZTY3NGJhY2E4MGM0ODI4ZTE2M2YyNDk2MDIxOTQzZWFiYmM1NjhmN2JjZjlmNzRjMjEzNTA4ZGJlOWY0YjU2OWI5MjBkMjdmNTUxYjllN2ZhMGQ3MTA=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
