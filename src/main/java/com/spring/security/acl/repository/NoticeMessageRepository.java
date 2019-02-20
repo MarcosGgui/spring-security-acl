@@ -21,9 +21,8 @@ public interface NoticeMessageRepository extends JpaRepository<NoticeMessage, Lo
     @PostFilter("hasPermission(filterObject, 'READ')")
     List<NoticeMessage> findAll();
 
-    @Override
     @PostAuthorize("hasPermission(returnObject, 'READ')")
-    Optional<NoticeMessage> findById(Long id);
+    NoticeMessage findById(Integer id);
 
     @Override
     @SuppressWarnings("unchecked")
