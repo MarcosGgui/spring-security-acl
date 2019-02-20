@@ -38,6 +38,7 @@ public class CacheConfiguration {
             cm.createCache(com.spring.security.acl.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.spring.security.acl.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.spring.security.acl.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.spring.security.acl.domain.NoticeMessage.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
