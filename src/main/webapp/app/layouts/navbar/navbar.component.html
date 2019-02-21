@@ -33,6 +33,30 @@
                             <span>Notice Message</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="acl-class" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span>Acl Class</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="acl-sid" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span>Acl Sid</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="acl-object-identity" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span>Acl Object Identity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="acl-entry" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span>Acl Entry</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

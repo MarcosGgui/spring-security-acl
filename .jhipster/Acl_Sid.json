@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "principal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sid",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190221025519",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "acl_sid",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

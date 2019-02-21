@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-acl-entry-heading">Create or edit a Acl Entry</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!aclEntry.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="aclEntry.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aclObjectIdentity">Acl Object Identity</label>
+                    <input type="number" class="form-control" name="aclObjectIdentity" id="field_aclObjectIdentity"
+                        [(ngModel)]="aclEntry.aclObjectIdentity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aceOrder">Ace Order</label>
+                    <input type="number" class="form-control" name="aceOrder" id="field_aceOrder"
+                        [(ngModel)]="aclEntry.aceOrder" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sid">Sid</label>
+                    <input type="number" class="form-control" name="sid" id="field_sid"
+                        [(ngModel)]="aclEntry.sid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mask">Mask</label>
+                    <input type="number" class="form-control" name="mask" id="field_mask"
+                        [(ngModel)]="aclEntry.mask" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_granting">Granting</label>
+                    <input type="number" class="form-control" name="granting" id="field_granting"
+                        [(ngModel)]="aclEntry.granting" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_auditSuccess">Audit Success</label>
+                    <input type="number" class="form-control" name="auditSuccess" id="field_auditSuccess"
+                        [(ngModel)]="aclEntry.auditSuccess" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_auditFailure">Audit Failure</label>
+                    <input type="number" class="form-control" name="auditFailure" id="field_auditFailure"
+                        [(ngModel)]="aclEntry.auditFailure" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

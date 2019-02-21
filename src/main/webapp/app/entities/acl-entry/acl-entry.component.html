@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>Acl Entries</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-acl-entry" [routerLink]="['/acl-entry/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Acl Entry
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="aclEntries">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Acl Object Identity</span></th>
+            <th><span>Ace Order</span></th>
+            <th><span>Sid</span></th>
+            <th><span>Mask</span></th>
+            <th><span>Granting</span></th>
+            <th><span>Audit Success</span></th>
+            <th><span>Audit Failure</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let aclEntry of aclEntries ;trackBy: trackId">
+                <td><a [routerLink]="['/acl-entry', aclEntry.id, 'view' ]">{{aclEntry.id}}</a></td>
+                <td>{{aclEntry.aclObjectIdentity}}</td>
+                <td>{{aclEntry.aceOrder}}</td>
+                <td>{{aclEntry.sid}}</td>
+                <td>{{aclEntry.mask}}</td>
+                <td>{{aclEntry.granting}}</td>
+                <td>{{aclEntry.auditSuccess}}</td>
+                <td>{{aclEntry.auditFailure}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/acl-entry', aclEntry.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/acl-entry', aclEntry.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'acl-entry', { outlets: { popup: aclEntry.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

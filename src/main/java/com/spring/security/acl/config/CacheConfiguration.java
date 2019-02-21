@@ -1,5 +1,8 @@
 package com.spring.security.acl.config;
 
+import com.spring.security.acl.domain.AclClass;
+import com.spring.security.acl.domain.AclObjectIdentity;
+import com.spring.security.acl.domain.AclSid;
 import java.time.Duration;
 
 import org.ehcache.config.builders.*;
@@ -39,6 +42,10 @@ public class CacheConfiguration {
             cm.createCache(com.spring.security.acl.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.spring.security.acl.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.spring.security.acl.domain.NoticeMessage.class.getName(), jcacheConfiguration);
+            cm.createCache(AclClass.class.getName(), jcacheConfiguration);
+            cm.createCache(AclSid.class.getName(), jcacheConfiguration);
+            cm.createCache(AclObjectIdentity.class.getName(), jcacheConfiguration);
+            cm.createCache(com.spring.security.acl.domain.AclEntry.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

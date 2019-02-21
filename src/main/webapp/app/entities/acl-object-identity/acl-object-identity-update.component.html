@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-acl-object-identity-heading">Create or edit a Acl Object Identity</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!acl_Object_Identity.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="acl_Object_Identity.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_objectIdClass">Object Id Class</label>
+                    <input type="number" class="form-control" name="objectIdClass" id="field_objectIdClass"
+                        [(ngModel)]="acl_Object_Identity.objectIdClass" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_objectIdIdentity">Object Id Identity</label>
+                    <input type="text" class="form-control" name="objectIdIdentity" id="field_objectIdIdentity"
+                        [(ngModel)]="acl_Object_Identity.objectIdIdentity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parentObject">Parent Object</label>
+                    <input type="number" class="form-control" name="parentObject" id="field_parentObject"
+                        [(ngModel)]="acl_Object_Identity.parentObject" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ownerSid">Owner Sid</label>
+                    <input type="number" class="form-control" name="ownerSid" id="field_ownerSid"
+                        [(ngModel)]="acl_Object_Identity.ownerSid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_entriesInheriting">Entries Inheriting</label>
+                    <input type="number" class="form-control" name="entriesInheriting" id="field_entriesInheriting"
+                        [(ngModel)]="acl_Object_Identity.entriesInheriting" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_acl_Class">Acl Class</label>
+                    <select class="form-control" id="field_acl_Class" name="acl_Class" [(ngModel)]="acl_Object_Identity.acl_Class" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="acl_ClassOption.id === acl_Object_Identity.acl_Class?.id ? acl_Object_Identity.acl_Class : acl_ClassOption" *ngFor="let acl_ClassOption of acl_classes; trackBy: trackAcl_ClassById">{{acl_ClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_acl_sid">Acl Sid</label>
+                    <select class="form-control" id="field_acl_sid" name="acl_sid" [(ngModel)]="acl_Object_Identity.acl_sid" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="acl_sidOption.id === acl_Object_Identity.acl_sid?.id ? acl_Object_Identity.acl_sid : acl_sidOption" *ngFor="let acl_sidOption of acl_sids; trackBy: trackAcl_sidById">{{acl_sidOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

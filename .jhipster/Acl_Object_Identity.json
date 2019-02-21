@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "acl_Class",
+            "otherEntityName": "acl_Class",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "acl_sid",
+            "otherEntityName": "acl_sid",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "objectIdClass",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "objectIdIdentity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentObject",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ownerSid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "entriesInheriting",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20190221030734",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "acl_object_identity",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

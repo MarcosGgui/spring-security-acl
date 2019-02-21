@@ -6,6 +6,11 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190220025338_added_entity_NoticeMessage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190221025112_added_entity_Acl_Class.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190221025519_added_entity_Acl_Sid.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190221030734_added_entity_Acl_Object_Identity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190221050948_added_entity_AclEntry.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190221030734_added_entity_constraints_Acl_Object_Identity.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

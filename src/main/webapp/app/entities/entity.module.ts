@@ -7,6 +7,22 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'notice-message',
                 loadChildren: './notice-message/notice-message.module#SpringSecurityAclNoticeMessageModule'
+            },
+            {
+                path: 'acl-class',
+                loadChildren: './acl-class/acl-class.module#SpringSecurityAclAcl_ClassModule'
+            },
+            {
+                path: 'acl-sid',
+                loadChildren: './acl-sid/acl-sid.module#SpringSecurityAclAcl_SidModule'
+            },
+            {
+                path: 'acl-object-identity',
+                loadChildren: './acl-object-identity/acl-object-identity.module#SpringSecurityAclAcl_Object_IdentityModule'
+            },
+            {
+                path: 'acl-entry',
+                loadChildren: './acl-entry/acl-entry.module#SpringSecurityAclAclEntryModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

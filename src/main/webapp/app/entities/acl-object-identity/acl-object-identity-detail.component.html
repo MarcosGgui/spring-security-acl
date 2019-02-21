@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="acl_Object_Identity">
+            <h2><span>Acl Object Identity</span> {{acl_Object_Identity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Object Id Class</span></dt>
+                <dd>
+                    <span>{{acl_Object_Identity.objectIdClass}}</span>
+                </dd>
+                <dt><span>Object Id Identity</span></dt>
+                <dd>
+                    <span>{{acl_Object_Identity.objectIdIdentity}}</span>
+                </dd>
+                <dt><span>Parent Object</span></dt>
+                <dd>
+                    <span>{{acl_Object_Identity.parentObject}}</span>
+                </dd>
+                <dt><span>Owner Sid</span></dt>
+                <dd>
+                    <span>{{acl_Object_Identity.ownerSid}}</span>
+                </dd>
+                <dt><span>Entries Inheriting</span></dt>
+                <dd>
+                    <span>{{acl_Object_Identity.entriesInheriting}}</span>
+                </dd>
+                <dt><span>Acl Class</span></dt>
+                <dd>
+                    <div *ngIf="acl_Object_Identity.acl_Class">
+                        <a [routerLink]="['/acl-class', acl_Object_Identity.acl_Class?.id, 'view']">{{acl_Object_Identity.acl_Class?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Acl Sid</span></dt>
+                <dd>
+                    <div *ngIf="acl_Object_Identity.acl_sid">
+                        <a [routerLink]="['/acl-sid', acl_Object_Identity.acl_sid?.id, 'view']">{{acl_Object_Identity.acl_sid?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/acl-object-identity', acl_Object_Identity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

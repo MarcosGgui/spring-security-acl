@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "aclObjectIdentity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "aceOrder",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mask",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "granting",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "auditSuccess",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "auditFailure",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20190221050948",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "acl_entry",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
