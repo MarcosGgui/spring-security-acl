@@ -2,13 +2,11 @@ package com.spring.security.acl.domain;
 
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -41,12 +39,6 @@ public class AclObjectIdentity implements Serializable{
 
     @Column(name = "entries_inheriting")
     private Integer entriesInheriting;
-
-    @ManyToOne
-    private AclClass aclClass;
-
-    @ManyToOne
-    private List<AclSid> aclSidList;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -122,19 +114,4 @@ public class AclObjectIdentity implements Serializable{
         this.entriesInheriting = entriesInheriting;
     }
 
-    public AclClass getAclClass() {
-        return aclClass;
-    }
-
-    public void setAclClass(AclClass aclClass) {
-        this.aclClass = aclClass;
-    }
-
-    public List<AclSid> getAclSidList() {
-        return aclSidList;
-    }
-
-    public void setAclSidList(List<AclSid> aclSidList) {
-        this.aclSidList = aclSidList;
-    }
 }
