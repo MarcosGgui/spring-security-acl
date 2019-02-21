@@ -4,33 +4,33 @@ import { HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
-import { Acl_Object_IdentityUpdateComponent } from 'app/entities/acl-object-identity/acl-object-identity-update.component';
-import { Acl_Object_IdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
-import { Acl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityUpdateComponent } from 'app/entities/acl-object-identity/acl-object-identity-update.component';
+import { AclObjectIdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
+import { AclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 
 describe('Component Tests', () => {
     describe('AclObjectIdentity Management Update Component', () => {
-        let comp: Acl_Object_IdentityUpdateComponent;
-        let fixture: ComponentFixture<Acl_Object_IdentityUpdateComponent>;
-        let service: Acl_Object_IdentityService;
+        let comp: AclObjectIdentityUpdateComponent;
+        let fixture: ComponentFixture<AclObjectIdentityUpdateComponent>;
+        let service: AclObjectIdentityService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [SpringSecurityAclTestModule],
-                declarations: [Acl_Object_IdentityUpdateComponent]
+                declarations: [AclObjectIdentityUpdateComponent]
             })
-                .overrideTemplate(Acl_Object_IdentityUpdateComponent, '')
+                .overrideTemplate(AclObjectIdentityUpdateComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(Acl_Object_IdentityUpdateComponent);
+            fixture = TestBed.createComponent(AclObjectIdentityUpdateComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_Object_IdentityService);
+            service = fixture.debugElement.injector.get(AclObjectIdentityService);
         });
 
         describe('save', () => {
             it('Should call update service on save for existing entity', fakeAsync(() => {
                 // GIVEN
-                const entity = new Acl_Object_Identity(123);
+                const entity = new AclObjectIdentity(123);
                 spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
                 comp.acl_Object_Identity = entity;
                 // WHEN
@@ -44,7 +44,7 @@ describe('Component Tests', () => {
 
             it('Should call create service on save for new entity', fakeAsync(() => {
                 // GIVEN
-                const entity = new Acl_Object_Identity();
+                const entity = new AclObjectIdentity();
                 spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
                 comp.acl_Object_Identity = entity;
                 // WHEN

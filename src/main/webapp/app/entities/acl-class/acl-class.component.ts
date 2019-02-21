@@ -4,21 +4,21 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
+import { IAclClass } from 'app/shared/model/acl-class.model';
 import { AccountService } from 'app/core';
-import { Acl_ClassService } from './acl-class.service';
+import { AclClassService } from './acl-class.service';
 
 @Component({
     selector: 'jhi-acl-class',
     templateUrl: './acl-class.component.html'
 })
-export class Acl_ClassComponent implements OnInit, OnDestroy {
-    acl_Classes: IAcl_Class[];
+export class AclClassComponent implements OnInit, OnDestroy {
+    acl_Classes: IAclClass[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        protected acl_ClassService: Acl_ClassService,
+        protected acl_ClassService: AclClassService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
@@ -28,11 +28,11 @@ export class Acl_ClassComponent implements OnInit, OnDestroy {
         this.acl_ClassService
             .query()
             .pipe(
-                filter((res: HttpResponse<IAcl_Class[]>) => res.ok),
-                map((res: HttpResponse<IAcl_Class[]>) => res.body)
+                filter((res: HttpResponse<IAclClass[]>) => res.ok),
+                map((res: HttpResponse<IAclClass[]>) => res.body)
             )
             .subscribe(
-                (res: IAcl_Class[]) => {
+                (res: IAclClass[]) => {
                     this.acl_Classes = res;
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -51,7 +51,7 @@ export class Acl_ClassComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: IAcl_Class) {
+    trackId(index: number, item: IAclClass) {
         return item.id;
     }
 

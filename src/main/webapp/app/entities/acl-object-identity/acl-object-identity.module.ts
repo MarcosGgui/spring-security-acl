@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 
 import { SpringSecurityAclSharedModule } from 'app/shared';
 import {
-    Acl_Object_IdentityComponent,
-    Acl_Object_IdentityDetailComponent,
-    Acl_Object_IdentityUpdateComponent,
+    AclObjectIdentityComponent,
+    AclObjectIdentityDetailComponent,
+    AclObjectIdentityUpdateComponent,
     Acl_Object_IdentityDeletePopupComponent,
     Acl_Object_IdentityDeleteDialogComponent,
     acl_Object_IdentityRoute,
@@ -17,15 +17,15 @@ const ENTITY_STATES = [...acl_Object_IdentityRoute, ...acl_Object_IdentityPopupR
 @NgModule({
     imports: [SpringSecurityAclSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
-        Acl_Object_IdentityComponent,
-        Acl_Object_IdentityDetailComponent,
-        Acl_Object_IdentityUpdateComponent,
+        AclObjectIdentityComponent,
+        AclObjectIdentityDetailComponent,
+        AclObjectIdentityUpdateComponent,
         Acl_Object_IdentityDeleteDialogComponent,
         Acl_Object_IdentityDeletePopupComponent
     ],
     entryComponents: [
-        Acl_Object_IdentityComponent,
-        Acl_Object_IdentityUpdateComponent,
+        AclObjectIdentityComponent,
+        AclObjectIdentityUpdateComponent,
         Acl_Object_IdentityDeleteDialogComponent,
         Acl_Object_IdentityDeletePopupComponent
     ],

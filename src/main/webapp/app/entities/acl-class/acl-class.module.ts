@@ -3,27 +3,27 @@ import { RouterModule } from '@angular/router';
 
 import { SpringSecurityAclSharedModule } from 'app/shared';
 import {
-    Acl_ClassComponent,
-    Acl_ClassDetailComponent,
-    Acl_ClassUpdateComponent,
-    Acl_ClassDeletePopupComponent,
-    Acl_ClassDeleteDialogComponent,
-    acl_ClassRoute,
+    AclClassComponent,
+    AclClassDetailComponent,
+    AclClassUpdateComponent,
+    AclClassDeletePopupComponent,
+    AclClassDeleteDialogComponent,
+    aclClassRoute,
     acl_ClassPopupRoute
 } from './';
 
-const ENTITY_STATES = [...acl_ClassRoute, ...acl_ClassPopupRoute];
+const ENTITY_STATES = [...aclClassRoute, ...acl_ClassPopupRoute];
 
 @NgModule({
     imports: [SpringSecurityAclSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
-        Acl_ClassComponent,
-        Acl_ClassDetailComponent,
-        Acl_ClassUpdateComponent,
-        Acl_ClassDeleteDialogComponent,
-        Acl_ClassDeletePopupComponent
+        AclClassComponent,
+        AclClassDetailComponent,
+        AclClassUpdateComponent,
+        AclClassDeleteDialogComponent,
+        AclClassDeletePopupComponent
     ],
-    entryComponents: [Acl_ClassComponent, Acl_ClassUpdateComponent, Acl_ClassDeleteDialogComponent, Acl_ClassDeletePopupComponent],
+    entryComponents: [AclClassComponent, AclClassUpdateComponent, AclClassDeleteDialogComponent, AclClassDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SpringSecurityAclAcl_ClassModule {}

@@ -4,17 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IAcl_Sid } from 'app/shared/model/acl-sid.model';
-import { Acl_SidService } from './acl-sid.service';
+import { IAclSid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from './acl-sid.service';
 
 @Component({
     selector: 'jhi-acl-sid-delete-dialog',
     templateUrl: './acl-sid-delete-dialog.component.html'
 })
 export class Acl_SidDeleteDialogComponent {
-    acl_Sid: IAcl_Sid;
+    acl_Sid: IAclSid;
 
-    constructor(protected acl_SidService: Acl_SidService, public activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
+    constructor(protected acl_SidService: AclSidService, public activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
 
     clear() {
         this.activeModal.dismiss('cancel');

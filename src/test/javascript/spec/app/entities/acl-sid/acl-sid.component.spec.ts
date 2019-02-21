@@ -5,14 +5,14 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
 import { Acl_SidComponent } from 'app/entities/acl-sid/acl-sid.component';
-import { Acl_SidService } from 'app/entities/acl-sid/acl-sid.service';
-import { Acl_Sid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from 'app/entities/acl-sid/acl-sid.service';
+import { AclSid } from 'app/shared/model/acl-sid.model';
 
 describe('Component Tests', () => {
     describe('AclSid Management Component', () => {
         let comp: Acl_SidComponent;
         let fixture: ComponentFixture<Acl_SidComponent>;
-        let service: Acl_SidService;
+        let service: AclSidService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
@@ -25,7 +25,7 @@ describe('Component Tests', () => {
 
             fixture = TestBed.createComponent(Acl_SidComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_SidService);
+            service = fixture.debugElement.injector.get(AclSidService);
         });
 
         it('Should call load all on init', () => {
@@ -34,7 +34,7 @@ describe('Component Tests', () => {
             spyOn(service, 'query').and.returnValue(
                 of(
                     new HttpResponse({
-                        body: [new Acl_Sid(123)],
+                        body: [new AclSid(123)],
                         headers
                     })
                 )

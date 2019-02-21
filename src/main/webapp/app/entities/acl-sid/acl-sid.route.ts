@@ -4,27 +4,27 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@a
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Acl_Sid } from 'app/shared/model/acl-sid.model';
-import { Acl_SidService } from './acl-sid.service';
+import { AclSid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from './acl-sid.service';
 import { Acl_SidComponent } from './acl-sid.component';
 import { Acl_SidDetailComponent } from './acl-sid-detail.component';
 import { Acl_SidUpdateComponent } from './acl-sid-update.component';
 import { Acl_SidDeletePopupComponent } from './acl-sid-delete-dialog.component';
-import { IAcl_Sid } from 'app/shared/model/acl-sid.model';
+import { IAclSid } from 'app/shared/model/acl-sid.model';
 
 @Injectable({ providedIn: 'root' })
-export class Acl_SidResolve implements Resolve<IAcl_Sid> {
-    constructor(private service: Acl_SidService) {}
+export class Acl_SidResolve implements Resolve<IAclSid> {
+    constructor(private service: AclSidService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAcl_Sid> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAclSid> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
-                filter((response: HttpResponse<Acl_Sid>) => response.ok),
-                map((acl_Sid: HttpResponse<Acl_Sid>) => acl_Sid.body)
+                filter((response: HttpResponse<AclSid>) => response.ok),
+                map((acl_Sid: HttpResponse<AclSid>) => acl_Sid.body)
             );
         }
-        return of(new Acl_Sid());
+        return of(new AclSid());
     }
 }
 

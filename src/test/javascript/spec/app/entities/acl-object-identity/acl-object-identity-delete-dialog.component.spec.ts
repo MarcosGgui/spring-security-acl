@@ -6,13 +6,13 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
 import { Acl_Object_IdentityDeleteDialogComponent } from 'app/entities/acl-object-identity/acl-object-identity-delete-dialog.component';
-import { Acl_Object_IdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
+import { AclObjectIdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
 
 describe('Component Tests', () => {
     describe('AclObjectIdentity Management Delete Component', () => {
         let comp: Acl_Object_IdentityDeleteDialogComponent;
         let fixture: ComponentFixture<Acl_Object_IdentityDeleteDialogComponent>;
-        let service: Acl_Object_IdentityService;
+        let service: AclObjectIdentityService;
         let mockEventManager: any;
         let mockActiveModal: any;
 
@@ -25,7 +25,7 @@ describe('Component Tests', () => {
                 .compileComponents();
             fixture = TestBed.createComponent(Acl_Object_IdentityDeleteDialogComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_Object_IdentityService);
+            service = fixture.debugElement.injector.get(AclObjectIdentityService);
             mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
             mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
         });

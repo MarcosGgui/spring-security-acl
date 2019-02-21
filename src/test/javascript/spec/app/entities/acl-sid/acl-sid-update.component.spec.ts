@@ -5,14 +5,14 @@ import { Observable, of } from 'rxjs';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
 import { Acl_SidUpdateComponent } from 'app/entities/acl-sid/acl-sid-update.component';
-import { Acl_SidService } from 'app/entities/acl-sid/acl-sid.service';
-import { Acl_Sid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from 'app/entities/acl-sid/acl-sid.service';
+import { AclSid } from 'app/shared/model/acl-sid.model';
 
 describe('Component Tests', () => {
     describe('AclSid Management Update Component', () => {
         let comp: Acl_SidUpdateComponent;
         let fixture: ComponentFixture<Acl_SidUpdateComponent>;
-        let service: Acl_SidService;
+        let service: AclSidService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
@@ -24,13 +24,13 @@ describe('Component Tests', () => {
 
             fixture = TestBed.createComponent(Acl_SidUpdateComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_SidService);
+            service = fixture.debugElement.injector.get(AclSidService);
         });
 
         describe('save', () => {
             it('Should call update service on save for existing entity', fakeAsync(() => {
                 // GIVEN
-                const entity = new Acl_Sid(123);
+                const entity = new AclSid(123);
                 spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
                 comp.acl_Sid = entity;
                 // WHEN
@@ -44,7 +44,7 @@ describe('Component Tests', () => {
 
             it('Should call create service on save for new entity', fakeAsync(() => {
                 // GIVEN
-                const entity = new Acl_Sid();
+                const entity = new AclSid();
                 spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
                 comp.acl_Sid = entity;
                 // WHEN

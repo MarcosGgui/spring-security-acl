@@ -4,18 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IAcl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
-import { Acl_Object_IdentityService } from './acl-object-identity.service';
+import { IAclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityService } from './acl-object-identity.service';
 
 @Component({
     selector: 'jhi-acl-object-identity-delete-dialog',
     templateUrl: './acl-object-identity-delete-dialog.component.html'
 })
 export class Acl_Object_IdentityDeleteDialogComponent {
-    acl_Object_Identity: IAcl_Object_Identity;
+    acl_Object_Identity: IAclObjectIdentity;
 
     constructor(
-        protected acl_Object_IdentityService: Acl_Object_IdentityService,
+        protected acl_Object_IdentityService: AclObjectIdentityService,
         public activeModal: NgbActiveModal,
         protected eventManager: JhiEventManager
     ) {}

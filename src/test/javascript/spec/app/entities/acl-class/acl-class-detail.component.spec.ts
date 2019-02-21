@@ -4,24 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
-import { Acl_ClassDetailComponent } from 'app/entities/acl-class/acl-class-detail.component';
-import { Acl_Class } from 'app/shared/model/acl-class.model';
+import { AclClassDetailComponent } from 'app/entities/acl-class/acl-class-detail.component';
+import { AclClass } from 'app/shared/model/acl-class.model';
 
 describe('Component Tests', () => {
     describe('AclClass Management Detail Component', () => {
-        let comp: Acl_ClassDetailComponent;
-        let fixture: ComponentFixture<Acl_ClassDetailComponent>;
-        const route = ({ data: of({ acl_Class: new Acl_Class(123) }) } as any) as ActivatedRoute;
+        let comp: AclClassDetailComponent;
+        let fixture: ComponentFixture<AclClassDetailComponent>;
+        const route = ({ data: of({ acl_Class: new AclClass(123) }) } as any) as ActivatedRoute;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [SpringSecurityAclTestModule],
-                declarations: [Acl_ClassDetailComponent],
+                declarations: [AclClassDetailComponent],
                 providers: [{ provide: ActivatedRoute, useValue: route }]
             })
-                .overrideTemplate(Acl_ClassDetailComponent, '')
+                .overrideTemplate(AclClassDetailComponent, '')
                 .compileComponents();
-            fixture = TestBed.createComponent(Acl_ClassDetailComponent);
+            fixture = TestBed.createComponent(AclClassDetailComponent);
             comp = fixture.componentInstance;
         });
 

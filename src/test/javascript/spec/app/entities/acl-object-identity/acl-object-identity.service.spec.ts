@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { Acl_Object_IdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
-import { IAcl_Object_Identity, Acl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
+import { IAclObjectIdentity, AclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 
 describe('Service Tests', () => {
     describe('AclObjectIdentity Service', () => {
         let injector: TestBed;
-        let service: Acl_Object_IdentityService;
+        let service: AclObjectIdentityService;
         let httpMock: HttpTestingController;
-        let elemDefault: IAcl_Object_Identity;
+        let elemDefault: IAclObjectIdentity;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(Acl_Object_IdentityService);
+            service = injector.get(AclObjectIdentityService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Acl_Object_Identity(0, 0, 'AAAAAAA', 0, 0, 0);
+            elemDefault = new AclObjectIdentity(0, 0, 'AAAAAAA', 0, 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -45,7 +45,7 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Acl_Object_Identity(null))
+                    .create(new AclObjectIdentity(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });

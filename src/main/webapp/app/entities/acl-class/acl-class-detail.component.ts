@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
+import { IAclClass } from 'app/shared/model/acl-class.model';
 
 @Component({
     selector: 'jhi-acl-class-detail',
     templateUrl: './acl-class-detail.component.html'
 })
-export class Acl_ClassDetailComponent implements OnInit {
-    acl_Class: IAcl_Class;
+export class AclClassDetailComponent implements OnInit {
+    acl_Class: IAclClass;
 
     constructor(protected activatedRoute: ActivatedRoute) {}
 

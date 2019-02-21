@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { Acl_ClassService } from 'app/entities/acl-class/acl-class.service';
-import { IAcl_Class, Acl_Class } from 'app/shared/model/acl-class.model';
+import { AclClassService } from 'app/entities/acl-class/acl-class.service';
+import { IAclClass, AclClass } from 'app/shared/model/acl-class.model';
 
 describe('Service Tests', () => {
     describe('AclClass Service', () => {
         let injector: TestBed;
-        let service: Acl_ClassService;
+        let service: AclClassService;
         let httpMock: HttpTestingController;
-        let elemDefault: IAcl_Class;
+        let elemDefault: IAclClass;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(Acl_ClassService);
+            service = injector.get(AclClassService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Acl_Class(0, 'AAAAAAA');
+            elemDefault = new AclClass(0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -45,7 +45,7 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Acl_Class(null))
+                    .create(new AclClass(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });

@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { Acl_SidService } from 'app/entities/acl-sid/acl-sid.service';
-import { IAcl_Sid, Acl_Sid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from 'app/entities/acl-sid/acl-sid.service';
+import { IAclSid, AclSid } from 'app/shared/model/acl-sid.model';
 
 describe('Service Tests', () => {
     describe('AclSid Service', () => {
         let injector: TestBed;
-        let service: Acl_SidService;
+        let service: AclSidService;
         let httpMock: HttpTestingController;
-        let elemDefault: IAcl_Sid;
+        let elemDefault: IAclSid;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(Acl_SidService);
+            service = injector.get(AclSidService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Acl_Sid(0, 0, 'AAAAAAA');
+            elemDefault = new AclSid(0, 0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -45,7 +45,7 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Acl_Sid(null))
+                    .create(new AclSid(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });

@@ -4,21 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
-import { Acl_ClassService } from './acl-class.service';
+import { IAclClass } from 'app/shared/model/acl-class.model';
+import { AclClassService } from './acl-class.service';
 
 @Component({
     selector: 'jhi-acl-class-delete-dialog',
     templateUrl: './acl-class-delete-dialog.component.html'
 })
-export class Acl_ClassDeleteDialogComponent {
-    acl_Class: IAcl_Class;
+export class AclClassDeleteDialogComponent {
+    acl_Class: IAclClass;
 
-    constructor(
-        protected acl_ClassService: Acl_ClassService,
-        public activeModal: NgbActiveModal,
-        protected eventManager: JhiEventManager
-    ) {}
+    constructor(protected acl_ClassService: AclClassService, public activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
 
     clear() {
         this.activeModal.dismiss('cancel');
@@ -39,7 +35,7 @@ export class Acl_ClassDeleteDialogComponent {
     selector: 'jhi-acl-class-delete-popup',
     template: ''
 })
-export class Acl_ClassDeletePopupComponent implements OnInit, OnDestroy {
+export class AclClassDeletePopupComponent implements OnInit, OnDestroy {
     protected ngbModalRef: NgbModalRef;
 
     constructor(protected activatedRoute: ActivatedRoute, protected router: Router, protected modalService: NgbModal) {}
@@ -47,7 +43,7 @@ export class Acl_ClassDeletePopupComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ acl_Class }) => {
             setTimeout(() => {
-                this.ngbModalRef = this.modalService.open(Acl_ClassDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
+                this.ngbModalRef = this.modalService.open(AclClassDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
                 this.ngbModalRef.componentInstance.acl_Class = acl_Class;
                 this.ngbModalRef.result.then(
                     result => {

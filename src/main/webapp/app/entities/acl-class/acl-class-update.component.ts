@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
-import { Acl_ClassService } from './acl-class.service';
+import { IAclClass } from 'app/shared/model/acl-class.model';
+import { AclClassService } from './acl-class.service';
 
 @Component({
     selector: 'jhi-acl-class-update',
     templateUrl: './acl-class-update.component.html'
 })
-export class Acl_ClassUpdateComponent implements OnInit {
-    acl_Class: IAcl_Class;
+export class AclClassUpdateComponent implements OnInit {
+    acl_Class: IAclClass;
     isSaving: boolean;
 
-    constructor(protected acl_ClassService: Acl_ClassService, protected activatedRoute: ActivatedRoute) {}
+    constructor(protected acl_ClassService: AclClassService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
@@ -35,8 +35,8 @@ export class Acl_ClassUpdateComponent implements OnInit {
         }
     }
 
-    protected subscribeToSaveResponse(result: Observable<HttpResponse<IAcl_Class>>) {
-        result.subscribe((res: HttpResponse<IAcl_Class>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+    protected subscribeToSaveResponse(result: Observable<HttpResponse<IAclClass>>) {
+        result.subscribe((res: HttpResponse<IAclClass>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
     }
 
     protected onSaveSuccess() {

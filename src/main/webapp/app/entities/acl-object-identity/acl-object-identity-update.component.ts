@@ -4,30 +4,30 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-import { IAcl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
-import { Acl_Object_IdentityService } from './acl-object-identity.service';
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
-import { Acl_ClassService } from 'app/entities/acl-class';
-import { IAcl_Sid } from 'app/shared/model/acl-sid.model';
-import { Acl_SidService } from 'app/entities/acl-sid';
+import { IAclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityService } from './acl-object-identity.service';
+import { IAclClass } from 'app/shared/model/acl-class.model';
+import { AclClassService } from 'app/entities/acl-class';
+import { IAclSid } from 'app/shared/model/acl-sid.model';
+import { AclSidService } from 'app/entities/acl-sid';
 
 @Component({
     selector: 'jhi-acl-object-identity-update',
     templateUrl: './acl-object-identity-update.component.html'
 })
-export class Acl_Object_IdentityUpdateComponent implements OnInit {
-    acl_Object_Identity: IAcl_Object_Identity;
+export class AclObjectIdentityUpdateComponent implements OnInit {
+    acl_Object_Identity: IAclObjectIdentity;
     isSaving: boolean;
 
-    acl_classes: IAcl_Class[];
+    acl_classes: IAclClass[];
 
-    acl_sids: IAcl_Sid[];
+    acl_sids: IAclSid[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
-        protected acl_Object_IdentityService: Acl_Object_IdentityService,
-        protected acl_ClassService: Acl_ClassService,
-        protected acl_sidService: Acl_SidService,
+        protected acl_Object_IdentityService: AclObjectIdentityService,
+        protected acl_ClassService: AclClassService,
+        protected acl_sidService: AclSidService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -39,17 +39,17 @@ export class Acl_Object_IdentityUpdateComponent implements OnInit {
         this.acl_ClassService
             .query()
             .pipe(
-                filter((mayBeOk: HttpResponse<IAcl_Class[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAcl_Class[]>) => response.body)
+                filter((mayBeOk: HttpResponse<IAclClass[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IAclClass[]>) => response.body)
             )
-            .subscribe((res: IAcl_Class[]) => (this.acl_classes = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: IAclClass[]) => (this.acl_classes = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.acl_sidService
             .query()
             .pipe(
-                filter((mayBeOk: HttpResponse<IAcl_Sid[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAcl_Sid[]>) => response.body)
+                filter((mayBeOk: HttpResponse<IAclSid[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IAclSid[]>) => response.body)
             )
-            .subscribe((res: IAcl_Sid[]) => (this.acl_sids = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: IAclSid[]) => (this.acl_sids = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -65,8 +65,8 @@ export class Acl_Object_IdentityUpdateComponent implements OnInit {
         }
     }
 
-    protected subscribeToSaveResponse(result: Observable<HttpResponse<IAcl_Object_Identity>>) {
-        result.subscribe((res: HttpResponse<IAcl_Object_Identity>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+    protected subscribeToSaveResponse(result: Observable<HttpResponse<IAclObjectIdentity>>) {
+        result.subscribe((res: HttpResponse<IAclObjectIdentity>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
     }
 
     protected onSaveSuccess() {
@@ -82,11 +82,11 @@ export class Acl_Object_IdentityUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackAcl_ClassById(index: number, item: IAcl_Class) {
+    trackAcl_ClassById(index: number, item: IAclClass) {
         return item.id;
     }
 
-    trackAcl_sidById(index: number, item: IAcl_Sid) {
+    trackAcl_sidById(index: number, item: IAclSid) {
         return item.id;
     }
 }

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="input-group mb-3 row">
+        <div class="input-group-prepend col-3">
+            <label class="input-group-text" for="inputGroupSelect01">User</label>
+        </div>
+        <select class="custom-select col-4 form-control" id="inputGroupSelect01" [(ngModel)]="accessUser">
+            <option selected>...</option>
+            <option *ngFor="let user of users" [ngValue]="user">{{user.login}}</option>
+        </select>
+        <div class="input-group-append col-4">
+            <button class="btn btn-outline-secondary" type="button" (click)="addSid()">Add TO ACL_SID</button>
+        </div>
+    </div>
+    <div class="input-group mb-3 row">
+        <div class="input-group-prepend col-3">
+            <label class="input-group-text" for="inputText01">Entity Class</label>
+        </div>
+        <input type="text" class="form-control col-4" id="inputText01"
+               placeholder="Text Full Class Name Here" [(ngModel)]="className" />
+        <div class="input-group-append col-4">
+            <button class="btn btn-outline-secondary" type="button" (click)="addSidClass()">Add To Object Class</button>
+        </div>
+    </div>
+    <div class="input-group mb-3 row">
+        <div class="input-group-prepend col-3">
+            <label class="input-group-text" for="inputGroupSelect03">ACCESS TYPE</label>
+        </div>
+        <select class="custom-select col-4" id="inputGroupSelect03" [(ngModel)]="access">
+            <option selected>...</option>
+            <option value="1">Read Only</option>
+            <option value="2">Write Only</option>
+            <option value="3">Read AND Write</option>
+        </select>
+        <div class="input-group-append col-4">
+            <button class="btn btn-outline-secondary" type="button">ADD ACCESS</button>
+        </div>
+    </div>
+</div>

@@ -5,27 +5,27 @@ import { Observable, of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
-import { Acl_ClassDeleteDialogComponent } from 'app/entities/acl-class/acl-class-delete-dialog.component';
-import { Acl_ClassService } from 'app/entities/acl-class/acl-class.service';
+import { AclClassDeleteDialogComponent } from 'app/entities/acl-class/acl-class-delete-dialog.component';
+import { AclClassService } from 'app/entities/acl-class/acl-class.service';
 
 describe('Component Tests', () => {
     describe('AclClass Management Delete Component', () => {
-        let comp: Acl_ClassDeleteDialogComponent;
-        let fixture: ComponentFixture<Acl_ClassDeleteDialogComponent>;
-        let service: Acl_ClassService;
+        let comp: AclClassDeleteDialogComponent;
+        let fixture: ComponentFixture<AclClassDeleteDialogComponent>;
+        let service: AclClassService;
         let mockEventManager: any;
         let mockActiveModal: any;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [SpringSecurityAclTestModule],
-                declarations: [Acl_ClassDeleteDialogComponent]
+                declarations: [AclClassDeleteDialogComponent]
             })
-                .overrideTemplate(Acl_ClassDeleteDialogComponent, '')
+                .overrideTemplate(AclClassDeleteDialogComponent, '')
                 .compileComponents();
-            fixture = TestBed.createComponent(Acl_ClassDeleteDialogComponent);
+            fixture = TestBed.createComponent(AclClassDeleteDialogComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_ClassService);
+            service = fixture.debugElement.injector.get(AclClassService);
             mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
             mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
         });

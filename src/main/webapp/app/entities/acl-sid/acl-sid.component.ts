@@ -4,21 +4,21 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { IAcl_Sid } from 'app/shared/model/acl-sid.model';
+import { IAclSid } from 'app/shared/model/acl-sid.model';
 import { AccountService } from 'app/core';
-import { Acl_SidService } from './acl-sid.service';
+import { AclSidService } from './acl-sid.service';
 
 @Component({
     selector: 'jhi-acl-sid',
     templateUrl: './acl-sid.component.html'
 })
 export class Acl_SidComponent implements OnInit, OnDestroy {
-    acl_Sids: IAcl_Sid[];
+    acl_Sids: IAclSid[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        protected acl_SidService: Acl_SidService,
+        protected acl_SidService: AclSidService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
@@ -28,11 +28,11 @@ export class Acl_SidComponent implements OnInit, OnDestroy {
         this.acl_SidService
             .query()
             .pipe(
-                filter((res: HttpResponse<IAcl_Sid[]>) => res.ok),
-                map((res: HttpResponse<IAcl_Sid[]>) => res.body)
+                filter((res: HttpResponse<IAclSid[]>) => res.ok),
+                map((res: HttpResponse<IAclSid[]>) => res.body)
             )
             .subscribe(
-                (res: IAcl_Sid[]) => {
+                (res: IAclSid[]) => {
                     this.acl_Sids = res;
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -51,7 +51,7 @@ export class Acl_SidComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: IAcl_Sid) {
+    trackId(index: number, item: IAclSid) {
         return item.id;
     }
 

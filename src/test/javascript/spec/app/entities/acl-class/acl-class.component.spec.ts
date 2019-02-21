@@ -4,28 +4,28 @@ import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
-import { Acl_ClassComponent } from 'app/entities/acl-class/acl-class.component';
-import { Acl_ClassService } from 'app/entities/acl-class/acl-class.service';
-import { Acl_Class } from 'app/shared/model/acl-class.model';
+import { AclClassComponent } from 'app/entities/acl-class/acl-class.component';
+import { AclClassService } from 'app/entities/acl-class/acl-class.service';
+import { AclClass } from 'app/shared/model/acl-class.model';
 
 describe('Component Tests', () => {
     describe('AclClass Management Component', () => {
-        let comp: Acl_ClassComponent;
-        let fixture: ComponentFixture<Acl_ClassComponent>;
-        let service: Acl_ClassService;
+        let comp: AclClassComponent;
+        let fixture: ComponentFixture<AclClassComponent>;
+        let service: AclClassService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [SpringSecurityAclTestModule],
-                declarations: [Acl_ClassComponent],
+                declarations: [AclClassComponent],
                 providers: []
             })
-                .overrideTemplate(Acl_ClassComponent, '')
+                .overrideTemplate(AclClassComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(Acl_ClassComponent);
+            fixture = TestBed.createComponent(AclClassComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_ClassService);
+            service = fixture.debugElement.injector.get(AclClassService);
         });
 
         it('Should call load all on init', () => {
@@ -34,7 +34,7 @@ describe('Component Tests', () => {
             spyOn(service, 'query').and.returnValue(
                 of(
                     new HttpResponse({
-                        body: [new Acl_Class(123)],
+                        body: [new AclClass(123)],
                         headers
                     })
                 )

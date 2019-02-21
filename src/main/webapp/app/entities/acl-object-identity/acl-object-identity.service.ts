@@ -4,32 +4,32 @@ import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
-import { IAcl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { IAclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 
-type EntityResponseType = HttpResponse<IAcl_Object_Identity>;
-type EntityArrayResponseType = HttpResponse<IAcl_Object_Identity[]>;
+type EntityResponseType = HttpResponse<IAclObjectIdentity>;
+type EntityArrayResponseType = HttpResponse<IAclObjectIdentity[]>;
 
 @Injectable({ providedIn: 'root' })
-export class Acl_Object_IdentityService {
+export class AclObjectIdentityService {
     public resourceUrl = SERVER_API_URL + 'api/acl-object-identities';
 
     constructor(protected http: HttpClient) {}
 
-    create(acl_Object_Identity: IAcl_Object_Identity): Observable<EntityResponseType> {
-        return this.http.post<IAcl_Object_Identity>(this.resourceUrl, acl_Object_Identity, { observe: 'response' });
+    create(aclObjectIdentity: IAclObjectIdentity): Observable<EntityResponseType> {
+        return this.http.post<IAclObjectIdentity>(this.resourceUrl, aclObjectIdentity, { observe: 'response' });
     }
 
-    update(acl_Object_Identity: IAcl_Object_Identity): Observable<EntityResponseType> {
-        return this.http.put<IAcl_Object_Identity>(this.resourceUrl, acl_Object_Identity, { observe: 'response' });
+    update(aclObjectIdentity: IAclObjectIdentity): Observable<EntityResponseType> {
+        return this.http.put<IAclObjectIdentity>(this.resourceUrl, aclObjectIdentity, { observe: 'response' });
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http.get<IAcl_Object_Identity>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+        return this.http.get<IAclObjectIdentity>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
-        return this.http.get<IAcl_Object_Identity[]>(this.resourceUrl, { params: options, observe: 'response' });
+        return this.http.get<IAclObjectIdentity[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

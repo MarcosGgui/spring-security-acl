@@ -4,34 +4,34 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@a
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Acl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
-import { Acl_Object_IdentityService } from './acl-object-identity.service';
-import { Acl_Object_IdentityComponent } from './acl-object-identity.component';
-import { Acl_Object_IdentityDetailComponent } from './acl-object-identity-detail.component';
-import { Acl_Object_IdentityUpdateComponent } from './acl-object-identity-update.component';
+import { AclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityService } from './acl-object-identity.service';
+import { AclObjectIdentityComponent } from './acl-object-identity.component';
+import { AclObjectIdentityDetailComponent } from './acl-object-identity-detail.component';
+import { AclObjectIdentityUpdateComponent } from './acl-object-identity-update.component';
 import { Acl_Object_IdentityDeletePopupComponent } from './acl-object-identity-delete-dialog.component';
-import { IAcl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { IAclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 
 @Injectable({ providedIn: 'root' })
-export class Acl_Object_IdentityResolve implements Resolve<IAcl_Object_Identity> {
-    constructor(private service: Acl_Object_IdentityService) {}
+export class AclObjectIdentityResolve implements Resolve<IAclObjectIdentity> {
+    constructor(private service: AclObjectIdentityService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAcl_Object_Identity> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAclObjectIdentity> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
-                filter((response: HttpResponse<Acl_Object_Identity>) => response.ok),
-                map((acl_Object_Identity: HttpResponse<Acl_Object_Identity>) => acl_Object_Identity.body)
+                filter((response: HttpResponse<AclObjectIdentity>) => response.ok),
+                map((acl_Object_Identity: HttpResponse<AclObjectIdentity>) => acl_Object_Identity.body)
             );
         }
-        return of(new Acl_Object_Identity());
+        return of(new AclObjectIdentity());
     }
 }
 
 export const acl_Object_IdentityRoute: Routes = [
     {
         path: '',
-        component: Acl_Object_IdentityComponent,
+        component: AclObjectIdentityComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'Acl_Object_Identities'
@@ -40,9 +40,9 @@ export const acl_Object_IdentityRoute: Routes = [
     },
     {
         path: ':id/view',
-        component: Acl_Object_IdentityDetailComponent,
+        component: AclObjectIdentityDetailComponent,
         resolve: {
-            acl_Object_Identity: Acl_Object_IdentityResolve
+            acl_Object_Identity: AclObjectIdentityResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -52,9 +52,9 @@ export const acl_Object_IdentityRoute: Routes = [
     },
     {
         path: 'new',
-        component: Acl_Object_IdentityUpdateComponent,
+        component: AclObjectIdentityUpdateComponent,
         resolve: {
-            acl_Object_Identity: Acl_Object_IdentityResolve
+            acl_Object_Identity: AclObjectIdentityResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -64,9 +64,9 @@ export const acl_Object_IdentityRoute: Routes = [
     },
     {
         path: ':id/edit',
-        component: Acl_Object_IdentityUpdateComponent,
+        component: AclObjectIdentityUpdateComponent,
         resolve: {
-            acl_Object_Identity: Acl_Object_IdentityResolve
+            acl_Object_Identity: AclObjectIdentityResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -81,7 +81,7 @@ export const acl_Object_IdentityPopupRoute: Routes = [
         path: ':id/delete',
         component: Acl_Object_IdentityDeletePopupComponent,
         resolve: {
-            acl_Object_Identity: Acl_Object_IdentityResolve
+            acl_Object_Identity: AclObjectIdentityResolve
         },
         data: {
             authorities: ['ROLE_USER'],

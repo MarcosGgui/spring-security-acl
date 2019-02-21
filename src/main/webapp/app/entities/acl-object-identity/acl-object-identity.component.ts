@@ -4,21 +4,21 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { IAcl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { IAclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 import { AccountService } from 'app/core';
-import { Acl_Object_IdentityService } from './acl-object-identity.service';
+import { AclObjectIdentityService } from './acl-object-identity.service';
 
 @Component({
     selector: 'jhi-acl-object-identity',
     templateUrl: './acl-object-identity.component.html'
 })
-export class Acl_Object_IdentityComponent implements OnInit, OnDestroy {
-    acl_Object_Identities: IAcl_Object_Identity[];
+export class AclObjectIdentityComponent implements OnInit, OnDestroy {
+    acl_Object_Identities: IAclObjectIdentity[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        protected acl_Object_IdentityService: Acl_Object_IdentityService,
+        protected acl_Object_IdentityService: AclObjectIdentityService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
@@ -28,11 +28,11 @@ export class Acl_Object_IdentityComponent implements OnInit, OnDestroy {
         this.acl_Object_IdentityService
             .query()
             .pipe(
-                filter((res: HttpResponse<IAcl_Object_Identity[]>) => res.ok),
-                map((res: HttpResponse<IAcl_Object_Identity[]>) => res.body)
+                filter((res: HttpResponse<IAclObjectIdentity[]>) => res.ok),
+                map((res: HttpResponse<IAclObjectIdentity[]>) => res.body)
             )
             .subscribe(
-                (res: IAcl_Object_Identity[]) => {
+                (res: IAclObjectIdentity[]) => {
                     this.acl_Object_Identities = res;
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -51,7 +51,7 @@ export class Acl_Object_IdentityComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: IAcl_Object_Identity) {
+    trackId(index: number, item: IAclObjectIdentity) {
         return item.id;
     }
 

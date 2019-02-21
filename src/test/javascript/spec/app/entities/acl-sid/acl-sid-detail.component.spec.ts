@@ -5,13 +5,13 @@ import { of } from 'rxjs';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
 import { Acl_SidDetailComponent } from 'app/entities/acl-sid/acl-sid-detail.component';
-import { Acl_Sid } from 'app/shared/model/acl-sid.model';
+import { AclSid } from 'app/shared/model/acl-sid.model';
 
 describe('Component Tests', () => {
     describe('AclSid Management Detail Component', () => {
         let comp: Acl_SidDetailComponent;
         let fixture: ComponentFixture<Acl_SidDetailComponent>;
-        const route = ({ data: of({ acl_Sid: new Acl_Sid(123) }) } as any) as ActivatedRoute;
+        const route = ({ data: of({ acl_Sid: new AclSid(123) }) } as any) as ActivatedRoute;
 
         beforeEach(() => {
             TestBed.configureTestingModule({

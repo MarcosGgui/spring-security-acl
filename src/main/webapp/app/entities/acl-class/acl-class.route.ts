@@ -4,34 +4,34 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@a
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Acl_Class } from 'app/shared/model/acl-class.model';
-import { Acl_ClassService } from './acl-class.service';
-import { Acl_ClassComponent } from './acl-class.component';
-import { Acl_ClassDetailComponent } from './acl-class-detail.component';
-import { Acl_ClassUpdateComponent } from './acl-class-update.component';
-import { Acl_ClassDeletePopupComponent } from './acl-class-delete-dialog.component';
-import { IAcl_Class } from 'app/shared/model/acl-class.model';
+import { AclClass } from 'app/shared/model/acl-class.model';
+import { AclClassService } from './acl-class.service';
+import { AclClassComponent } from './acl-class.component';
+import { AclClassDetailComponent } from './acl-class-detail.component';
+import { AclClassUpdateComponent } from './acl-class-update.component';
+import { AclClassDeletePopupComponent } from './acl-class-delete-dialog.component';
+import { IAclClass } from 'app/shared/model/acl-class.model';
 
 @Injectable({ providedIn: 'root' })
-export class Acl_ClassResolve implements Resolve<IAcl_Class> {
-    constructor(private service: Acl_ClassService) {}
+export class AclClassResolve implements Resolve<IAclClass> {
+    constructor(private service: AclClassService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAcl_Class> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAclClass> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
-                filter((response: HttpResponse<Acl_Class>) => response.ok),
-                map((acl_Class: HttpResponse<Acl_Class>) => acl_Class.body)
+                filter((response: HttpResponse<AclClass>) => response.ok),
+                map((aclClass: HttpResponse<AclClass>) => aclClass.body)
             );
         }
-        return of(new Acl_Class());
+        return of(new AclClass());
     }
 }
 
-export const acl_ClassRoute: Routes = [
+export const aclClassRoute: Routes = [
     {
         path: '',
-        component: Acl_ClassComponent,
+        component: AclClassComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'Acl_Classes'
@@ -40,9 +40,9 @@ export const acl_ClassRoute: Routes = [
     },
     {
         path: ':id/view',
-        component: Acl_ClassDetailComponent,
+        component: AclClassDetailComponent,
         resolve: {
-            acl_Class: Acl_ClassResolve
+            acl_Class: AclClassResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -52,9 +52,9 @@ export const acl_ClassRoute: Routes = [
     },
     {
         path: 'new',
-        component: Acl_ClassUpdateComponent,
+        component: AclClassUpdateComponent,
         resolve: {
-            acl_Class: Acl_ClassResolve
+            acl_Class: AclClassResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -64,9 +64,9 @@ export const acl_ClassRoute: Routes = [
     },
     {
         path: ':id/edit',
-        component: Acl_ClassUpdateComponent,
+        component: AclClassUpdateComponent,
         resolve: {
-            acl_Class: Acl_ClassResolve
+            acl_Class: AclClassResolve
         },
         data: {
             authorities: ['ROLE_USER'],
@@ -79,9 +79,9 @@ export const acl_ClassRoute: Routes = [
 export const acl_ClassPopupRoute: Routes = [
     {
         path: ':id/delete',
-        component: Acl_ClassDeletePopupComponent,
+        component: AclClassDeletePopupComponent,
         resolve: {
-            acl_Class: Acl_ClassResolve
+            acl_Class: AclClassResolve
         },
         data: {
             authorities: ['ROLE_USER'],

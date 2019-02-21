@@ -4,28 +4,28 @@ import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { SpringSecurityAclTestModule } from '../../../test.module';
-import { Acl_Object_IdentityComponent } from 'app/entities/acl-object-identity/acl-object-identity.component';
-import { Acl_Object_IdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
-import { Acl_Object_Identity } from 'app/shared/model/acl-object-identity.model';
+import { AclObjectIdentityComponent } from 'app/entities/acl-object-identity/acl-object-identity.component';
+import { AclObjectIdentityService } from 'app/entities/acl-object-identity/acl-object-identity.service';
+import { AclObjectIdentity } from 'app/shared/model/acl-object-identity.model';
 
 describe('Component Tests', () => {
     describe('AclObjectIdentity Management Component', () => {
-        let comp: Acl_Object_IdentityComponent;
-        let fixture: ComponentFixture<Acl_Object_IdentityComponent>;
-        let service: Acl_Object_IdentityService;
+        let comp: AclObjectIdentityComponent;
+        let fixture: ComponentFixture<AclObjectIdentityComponent>;
+        let service: AclObjectIdentityService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [SpringSecurityAclTestModule],
-                declarations: [Acl_Object_IdentityComponent],
+                declarations: [AclObjectIdentityComponent],
                 providers: []
             })
-                .overrideTemplate(Acl_Object_IdentityComponent, '')
+                .overrideTemplate(AclObjectIdentityComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(Acl_Object_IdentityComponent);
+            fixture = TestBed.createComponent(AclObjectIdentityComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(Acl_Object_IdentityService);
+            service = fixture.debugElement.injector.get(AclObjectIdentityService);
         });
 
         it('Should call load all on init', () => {
@@ -34,7 +34,7 @@ describe('Component Tests', () => {
             spyOn(service, 'query').and.returnValue(
                 of(
                     new HttpResponse({
-                        body: [new Acl_Object_Identity(123)],
+                        body: [new AclObjectIdentity(123)],
                         headers
                     })
                 )
