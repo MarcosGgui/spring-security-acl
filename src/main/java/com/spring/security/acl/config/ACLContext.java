@@ -76,4 +76,5 @@ public class ACLContext{
   public JdbcMutableAclService aclService() {
     return new JdbcMutableAclService(dataSource, lookupStrategy(), aclCache());
   }
+
 }
